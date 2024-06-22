@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Tail-F Client 2</title>
+</head>
+<body>
+
+<h1>Reading Logs in client2</h1>
+
+<div id = "log">
+    <pre id = "logContent"></pre>
+</div>
+
+<script>
+
+    let socket = new WebSocket('ws://127.0.0.1:8080/log');
+    let logContent = document.getElementById('logContent');
+
+    socket.onmessage = function (event) {
+        logContent.innerText += event.data+"\n";
+    }
+
+</script>
+
+</body>
+</html>
